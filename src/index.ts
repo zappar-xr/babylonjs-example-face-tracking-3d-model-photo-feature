@@ -37,7 +37,7 @@ export const scene = new BABYLON.Scene(engine);
 const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
 
 // Setup a Zappar camera instead of one of Babylon's cameras
-export const camera = new ZapparBabylon.Camera(scene);
+export const camera = new ZapparBabylon.Camera('ZapparCamera', scene);
 
 // Request the necessary permission from the user
 ZapparBabylon.permissionRequestUI().then((granted) => {
@@ -46,7 +46,7 @@ ZapparBabylon.permissionRequestUI().then((granted) => {
 });
 
 const faceTracker = new ZapparBabylon.FaceTrackerLoader().load();
-const trackerTransformNode = new ZapparBabylon.FaceTrackerTransformNode(camera, faceTracker, scene);
+const trackerTransformNode = new ZapparBabylon.FaceTrackerTransformNode('tracker', camera, faceTracker, scene);
 
 trackerTransformNode.setEnabled(false);
 faceTracker.onVisible.bind(() => {
@@ -56,7 +56,7 @@ faceTracker.onNotVisible.bind(() => {
   trackerTransformNode.setEnabled(false);
 });
 
-const headMaskMesh = new ZapparBabylon.HeadMaskMeshLoader(scene).load();
+const headMaskMesh = new ZapparBabylon.HeadMaskMeshLoader('mask', scene).load();
 headMaskMesh.parent = trackerTransformNode;
 // headMaskMesh.material!.disableColorWrite = false;
 BABYLON.SceneLoader.ImportMesh(null, '', beard, scene, (meshes) => {
@@ -96,7 +96,7 @@ window.addEventListener('resize', () => {
 
 // Set up our render loop
 engine.runRenderLoop(() => {
-  headMaskMesh.updateFromFaceAnchorGroup(trackerTransformNode);
+  headMaskMesh.updateFromFaceAnchorTransformNode(trackerTransformNode);
   camera.updateFrame();
   scene.render();
 });
