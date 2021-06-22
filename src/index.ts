@@ -65,7 +65,7 @@ BABYLON.SceneLoader.ImportMesh(null, '', beard, scene, (meshes) => {
   mesh.rotation.y = Math.PI;
   mesh.parent = trackerTransformNode;
   mesh.scaling = new BABYLON.Vector3(0.42, 0.42, 0.42);
-  mesh.position = new BABYLON.Vector3(0, -0.45, -0.58);
+  mesh.position = new BABYLON.Vector3(0, -0.45, -0.62);
 });
 
 BABYLON.SceneLoader.ImportMesh(null, '', helmet, scene, (meshes) => {
