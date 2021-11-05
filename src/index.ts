@@ -2,7 +2,7 @@
 /* eslint-disable no-param-reassign */
 import * as BABYLON from 'babylonjs';
 import * as ZapparBabylon from '@zappar/zappar-babylonjs';
-import * as SnapshotManager from '@zappar/webgl-snapshot';
+import ZapparWebGLSnapshot from '@zappar/webgl-snapshot';
 import beard from '../assets/beard.glb';
 import helmet from '../assets/helmet.glb';
 import 'babylonjs-loaders';
@@ -85,7 +85,7 @@ btn.addEventListener('click', () => {
   const url = canvas.toDataURL('image/jpeg', 0.8);
 
   // Take snapshot
-  SnapshotManager.promptImage({
+  ZapparWebGLSnapshot({
     data: url,
   });
 });
