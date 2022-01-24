@@ -2,7 +2,7 @@
 /* eslint-disable no-param-reassign */
 import * as BABYLON from 'babylonjs';
 import * as ZapparBabylon from '@zappar/zappar-babylonjs';
-import ZapparWebGLSnapshot from '@zappar/webgl-snapshot';
+import ZapparWebGLSnapshot from '@zappar/sharing';
 import beard from '../assets/beard.glb';
 import helmet from '../assets/helmet.glb';
 import 'babylonjs-loaders';
