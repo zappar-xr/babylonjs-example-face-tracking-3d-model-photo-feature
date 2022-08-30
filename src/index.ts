@@ -3,10 +3,12 @@
 import * as BABYLON from 'babylonjs';
 import * as ZapparBabylon from '@zappar/zappar-babylonjs';
 import ZapparWebGLSnapshot from '@zappar/sharing';
-import beard from '../assets/beard.glb';
-import helmet from '../assets/helmet.glb';
+
 import 'babylonjs-loaders';
-import './index.sass';
+import './index.css';
+
+const helmet = new URL('../assets/helmet.glb', import.meta.url).href;
+const beard = new URL('../assets/beard.glb', import.meta.url).href;
 
 // The SDK is supported on many different browsers, but there are some that
 // don't provide camera access. This function detects if the browser is supported
